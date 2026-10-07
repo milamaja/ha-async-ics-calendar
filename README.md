@@ -38,8 +38,12 @@ libraries. The event loop is never touched by the parse.
 
 ### Via HACS (custom repository)
 
-This integration is not in the default HACS store. Add it as a custom
-repository:
+This integration is not in the default HACS store. The button opens it in
+HACS (it uses [My Home Assistant](https://www.home-assistant.io/integrations/my/), which is on by default):
+
+[![Open your Home Assistant instance and open this repository inside HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=milamaja&repository=ha-async-ics-calendar&category=integration)
+
+Or add it as a custom repository by hand:
 
 1. HACS → Integrations → ⋮ (top right) → **Custom repositories**.
 2. Repository: `https://github.com/milamaja/ha-async-ics-calendar`,
