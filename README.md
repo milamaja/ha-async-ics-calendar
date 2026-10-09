@@ -31,8 +31,8 @@ libraries. The event loop is never touched by the parse.
   Outlook/Office 365, Nextcloud, Fastmail, etc., anything that serves a
   standard `.ics` feed).
 - Full RRULE/RDATE/EXDATE recurrence expansion.
-- Configurable poll interval and event-window size.
-- Multiple calendars: just add multiple platform entries.
+- Set up and changed in the UI: refresh interval and event window per calendar.
+- Multiple calendars: add the integration once per calendar.
 
 ## Installation
 
@@ -58,8 +58,35 @@ Or add it as a custom repository by hand:
 
 ## Configuration
 
-This integration is YAML-only (no config flow / UI setup). Add it under the
-`calendar:` key in `configuration.yaml`:
+[![Open your Home Assistant instance and start setting up Async ICS Calendar.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=async_ics_calendar)
+
+Or go to **Settings, Devices & services, Add integration** and search for
+**Async ICS Calendar**. Fill in:
+
+- **Name**: the name of the calendar entity, for example `Family`.
+- **ICS address (URL)**: the address of the `.ics` feed, such as the secret
+  address of a Google, Outlook or Nextcloud calendar. It is checked once
+  before the calendar is added, and never written to the log.
+
+Add the integration again for each calendar.
+
+### Settings
+
+Under **Settings, Devices & services, Async ICS Calendar**, click the gear of a
+calendar to change:
+
+| Setting               | Default    | Description                                                   |
+| --------------------- | ---------- | ------------------------------------------------------------- |
+| Refresh every         | 15 minutes | How often the feed is downloaded and parsed again.            |
+| Keep past events for  | 3 days     | Days in the past that events stay available.                  |
+| Show events up to     | 60 days    | Days ahead that events, including repeating events, are shown. |
+
+To change the name or the address of a calendar, choose **Reconfigure** in its
+menu (three dots). The calendar entity stays the same.
+
+### Coming from YAML
+
+Earlier versions were set up in `configuration.yaml`:
 
 ```yaml
 calendar:
@@ -68,34 +95,13 @@ calendar:
     name: "Family"
 ```
 
-### Options
-
-| Key             | Required | Default        | Description                                             |
-| --------------- | -------- | -------------- | -------------------------------------------------------- |
-| `url`           | yes      | n/a            | The ICS feed URL.                                        |
-| `name`          | no       | `ICS Calendar` | Friendly name for the calendar entity.                   |
-| `scan_interval` | no       | `00:15:00`     | How often to re-fetch and re-parse the feed.              |
-| `days_backward` | no       | `3`            | How many days in the past to keep one-off events for.     |
-| `days_forward`  | no       | `60`           | How many days ahead to expand recurring events to.        |
-
-Multiple calendars are just multiple entries:
-
-```yaml
-calendar:
-  - platform: async_ics_calendar
-    name: "Work"
-    url: "https://example.com/work.ics"
-  - platform: async_ics_calendar
-    name: "Family"
-    url: "https://example.com/family.ics"
-    scan_interval: "00:30:00"
-    days_forward: 90
-```
+These calendars are taken over automatically at the next restart, with their
+settings and their entity ids, so dashboards and automations keep working.
+Home Assistant then shows a repair: remove the `async_ics_calendar` entries
+from `configuration.yaml` and restart once more.
 
 ## Limitations
 
-- YAML configuration only, there's no config flow / UI setup screen (see
-  [Contributing](#contributing) if you'd like to add one).
 - Read-only: this integration doesn't support creating or editing events.
 - If your feed is large or slow enough that even a 15-second HTTP fetch
   times out, requests will fail until the server responds faster, consider
@@ -103,8 +109,7 @@ calendar:
 
 ## Contributing
 
-Issues and PRs welcome. A config-flow (UI-configurable) version would be a
-reasonable enhancement if there's interest.
+Issues and PRs welcome.
 
 ## License
 

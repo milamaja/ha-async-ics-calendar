@@ -1,0 +1,56 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "ICS-agenda toevoegen",
+        "description": "Een agenda van elk ICS-adres (iCalendar), zoals het geheime adres van een Google-, Outlook- of Nextcloud-agenda.",
+        "data": {
+          "name": "Naam",
+          "url": "ICS-adres (URL)"
+        },
+        "data_description": {
+          "name": "Naam van de agenda-entiteit, bijvoorbeeld Gezin.",
+          "url": "Het adres van de .ics-feed. Het wordt één keer gecontroleerd voordat de agenda wordt toegevoegd, en nooit in het logboek geschreven."
+        }
+      },
+      "reconfigure": {
+        "title": "Agenda wijzigen",
+        "description": "Wijzig de naam of het ICS-adres. De agenda-entiteit en de geschiedenis blijven hetzelfde.",
+        "data": {
+          "name": "Naam",
+          "url": "ICS-adres (URL)"
+        },
+        "data_description": {
+          "name": "Naam van de agenda-entiteit.",
+          "url": "Het adres van de .ics-feed. Het wordt één keer gecontroleerd voordat de wijziging wordt opgeslagen."
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Kon geen agenda downloaden van dit adres. Controleer het adres en of Home Assistant het kan bereiken.",
+      "invalid_ics": "Dit adres levert geen ICS-agenda op.",
+      "already_configured": "Een andere agenda gebruikt dit adres al."
+    },
+    "abort": {
+      "already_configured": "Deze agenda is al ingesteld.",
+      "reconfigure_successful": "De agenda is bijgewerkt."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Agenda-instellingen",
+        "data": {
+          "refresh_minutes": "Vernieuwen elke",
+          "days_backward": "Afspraken uit het verleden bewaren",
+          "days_forward": "Afspraken tonen tot"
+        },
+        "data_description": {
+          "refresh_minutes": "Hoe vaak de agenda opnieuw wordt gedownload, in minuten.",
+          "days_backward": "Aantal dagen in het verleden dat afspraken beschikbaar blijven.",
+          "days_forward": "Aantal dagen vooruit dat afspraken, ook herhalende, worden getoond."
+        }
+      }
+    }
+  }
+}

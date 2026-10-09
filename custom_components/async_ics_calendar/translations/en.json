@@ -1,0 +1,56 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Add an ICS calendar",
+        "description": "A calendar from any ICS (iCalendar) address, such as the secret address of a Google, Outlook or Nextcloud calendar.",
+        "data": {
+          "name": "Name",
+          "url": "ICS address (URL)"
+        },
+        "data_description": {
+          "name": "Name of the calendar entity, for example Family.",
+          "url": "The address of the .ics feed. It is checked once before the calendar is added, and never written to the log."
+        }
+      },
+      "reconfigure": {
+        "title": "Change the calendar",
+        "description": "Change the name or the ICS address. The calendar entity and its history stay the same.",
+        "data": {
+          "name": "Name",
+          "url": "ICS address (URL)"
+        },
+        "data_description": {
+          "name": "Name of the calendar entity.",
+          "url": "The address of the .ics feed. It is checked once before the change is saved."
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Could not download a calendar from this address. Check the address and that it can be reached from Home Assistant.",
+      "invalid_ics": "This address does not return an ICS calendar.",
+      "already_configured": "Another calendar already uses this address."
+    },
+    "abort": {
+      "already_configured": "This calendar is already set up.",
+      "reconfigure_successful": "The calendar has been updated."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Calendar settings",
+        "data": {
+          "refresh_minutes": "Refresh every",
+          "days_backward": "Keep past events for",
+          "days_forward": "Show events up to"
+        },
+        "data_description": {
+          "refresh_minutes": "How often the calendar is downloaded again, in minutes.",
+          "days_backward": "Days in the past that events stay available.",
+          "days_forward": "Days ahead that events, including repeating events, are shown."
+        }
+      }
+    }
+  }
+}

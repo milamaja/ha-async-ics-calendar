@@ -1,11 +1,17 @@
 {
   "domain": "async_ics_calendar",
   "name": "Async ICS Calendar",
-  "codeowners": ["@milamaja"],
-  "config_flow": false,
+  "codeowners": [
+    "@milamaja"
+  ],
+  "config_flow": true,
   "documentation": "https://github.com/milamaja/ha-async-ics-calendar",
+  "integration_type": "service",
   "iot_class": "cloud_polling",
   "issue_tracker": "https://github.com/milamaja/ha-async-ics-calendar/issues",
-  "requirements": ["icalendar>=5.0.0", "recurring-ical-events>=2.1.0"],
-  "version": "1.0.0"
+  "requirements": [
+    "icalendar>=5.0.0",
+    "recurring-ical-events>=2.1.0"
+  ],
+  "version": "1.1.0"
 }
