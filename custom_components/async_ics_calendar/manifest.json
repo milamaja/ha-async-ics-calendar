@@ -13,5 +13,5 @@
     "icalendar>=5.0.0",
     "recurring-ical-events>=2.1.0"
   ],
-  "version": "1.1.0"
+  "version": "1.1.6"
 }
