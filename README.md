@@ -3,13 +3,6 @@
 A minimal `calendar` platform that fetches a plain ICS/iCalendar URL and
 parses it **without blocking Home Assistant's event loop**.
 
-<p>
-  <img src="https://raw.githubusercontent.com/milamaja/ha-async-ics-calendar/master/images/add-form.png" width="460" alt="The Add an ICS calendar form with a name and an ICS address">
-</p>
-<p>
-  <img src="https://raw.githubusercontent.com/milamaja/ha-async-ics-calendar/master/images/calendar.png" width="800" alt="Home Assistant's calendar card with two ICS calendars: an autumn holiday, a study day, trainings and matches">
-</p>
-
 ## Why this exists
 
 Home Assistant ships a built-in [`remote_calendar`](https://www.home-assistant.io/integrations/remote_calendar/)
@@ -40,6 +33,8 @@ libraries. The event loop is never touched by the parse.
 - Full RRULE/RDATE/EXDATE recurrence expansion.
 - Set up and changed in the UI: refresh interval and event window per calendar.
 - Multiple calendars: add the integration once per calendar.
+
+<p><img src="https://raw.githubusercontent.com/milamaja/ha-async-ics-calendar/master/images/calendar.png" width="800" alt="Home Assistant's calendar card with two ICS calendars: an autumn holiday, a study day, weekly trainings and matches"></p>
 
 ## Installation
 
@@ -74,6 +69,8 @@ Or go to **Settings, Devices & services, Add integration** and search for
 - **ICS address (URL)**: the address of the `.ics` feed, such as the secret
   address of a Google, Outlook or Nextcloud calendar. It is checked once
   before the calendar is added, and never written to the log.
+
+<p><img src="https://raw.githubusercontent.com/milamaja/ha-async-ics-calendar/master/images/add-form.png" width="460" alt="The Add an ICS calendar form with a name and an ICS address"></p>
 
 Add the integration again for each calendar.
 
